@@ -1,5 +1,20 @@
-const sequalize = require('.//config/connection');
+const { Model, DataTypes } = require('sequelize');
 
-//fields and rules
+const sequelize = require('../config/connection');
 
-//PRODUCT
+class ProductTag extends Model {}
+
+ProductTag.init(
+  {
+    // define columns
+  },
+  {
+    sequelize,
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'product_tag',
+  }
+);
+
+module.exports = ProductTag;
