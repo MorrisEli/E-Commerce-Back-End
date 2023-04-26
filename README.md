@@ -1,5 +1,9 @@
 ## E-Commerce-Back-End
 
+Couldnt connect to my server.
+
+
+
 ## NOTES
 
 run npm run seed to seed data to your database so that you can test your routes.
