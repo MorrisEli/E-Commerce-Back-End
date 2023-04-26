@@ -1,13 +1,22 @@
-require('dotenv').config()
+require('dotenv').config();
 
 const express = require('express');
 const routes = require('./routes');
-const sequelize = require('./Develop/config/connection');
+const sequelize = require('./config/connection');
+const mysql = require('mysql2');
 
 // import sequelize connection
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3306;
+const db = mysql.createConnection(
+{
+  host: '127.0.0.1',
+  port: 3306,
+  user: 'root',
+  password: process.env.PASSWORD,
+  database: 'ecommerce_db'
+});
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -21,4 +30,4 @@ sequelize
   app.listen(PORT, () => {
     console.log(`App listening on port ${PORT}!`);
   });
-  })
+  });
